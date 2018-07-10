@@ -11,7 +11,8 @@ RUN apt-get update -y \
  && curl -OL https://github.com/dashpay/dash/releases/download/v0.12.3.2/dashcore-0.12.3.2-x86_64-linux-gnu.tar.gz \
  && echo '1c80bc79451da100c38c431fc8f9ff8e35e6f30a65df7b4200f8b01344453c70  dashcore-0.12.3.2-x86_64-linux-gnu.tar.gz' | sha256sum -c \
  && tar -xzvf dashcore-0.12.3.2-x86_64-linux-gnu.tar.gz -C . --strip-components=1 \
- && rm -rf share/ dashcore-0.12.3.2-x86_64-linux-gnu.tar.gz
+ && rm -rf share/ dashcore-0.12.3.2-x86_64-linux-gnu.tar.gz \
+ && apt-get clean
 
 ENV DASH_DATA="/home/dash/.dash" PATH="/dash/bin:$PATH"
 
